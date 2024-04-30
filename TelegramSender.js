@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Telegram Sender
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  Send to Telegram via Bot API
 // @author       Mitchelde
 // @match        https://gelbooru.com/*
