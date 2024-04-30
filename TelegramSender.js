@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Telegram Sender
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Send to Telegram via Bot API
 // @author       Mitchelde
-// @match       https://gelbooru.com/*
+// @match        https://gelbooru.com/*
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -110,7 +110,7 @@
         const characterLinks = tagList.querySelectorAll('li.tag-type-character > a');
         const copyrightLinks = tagList.querySelectorAll('li.tag-type-copyright > a');
         const generalLinks = tagList.querySelectorAll('li.tag-type-general > a');
-        
+
         // Создаем массив для хранения текста из тегов <a>
         const characterTexts = [];
 
@@ -138,12 +138,10 @@
     }
     // Функция для создания кнопки и добавления ее в указанный элемент
     function addButtonToFirstDiv() {
-        // Находим первый элемент <div> внутри body
-        // const targetScrolleBox = document.querySelector('#scrollebox');
-        // const targetContainer = document.querySelector('#container > main > div.mainBodyPadding > div:nth-child(5)');
         const targetScrolleBox = document.getElementById('scrollebox');
         const targetContainer = document.getElementsByClassName('alert alert-info')[2];
-        console.log(targetContainer);
+        
+        console.log(targetScrolleBox.innerText + targetContainer.innerText);
         if (targetScrolleBox && targetContainer) {
             const text = document.createElement('span');
             text.textContent = "|";
