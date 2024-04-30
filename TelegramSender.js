@@ -27,7 +27,7 @@
             url: url,
             data: formData,
             onload: function (response) {
-                alert(response.responseText);
+                confirm(response.responseText);
             }
         });
     }
@@ -44,7 +44,7 @@
             url: url,
             data: formData,
             onload: function (response) {
-                alert(response.responseText);
+                confirm(response.responseText);
             }
         });
     }
@@ -64,7 +64,7 @@
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             onload: function (response) {
-                alert(response.responseText);
+                confirm(response.responseText);
             }
         });
     }
@@ -78,7 +78,7 @@
             const imageUrl = imageElement.getAttribute('src');
             return imageUrl; // Возвращаем ссылку на изображение
         } else {
-            alert('Элемент с идентификатором image не найден.');
+            confirm('Элемент с идентификатором image не найден.');
             return null; // Если элемент не найден, возвращаем null
         }
     }
@@ -92,7 +92,7 @@
             const videoUrl = imageElement.src;
             return videoUrl; // Возвращаем ссылку на изображение
         } else {
-            alert('Элемент с идентификатором video не найден.');
+            confirm('Элемент с идентификатором video не найден.');
             return null; // Если элемент не найден, возвращаем null
         }
     }
@@ -102,7 +102,7 @@
 
         // Проверяем, был ли найден элемент с идентификатором #tag-list
         if (!tagList) {
-            alert('Элемент с идентификатором #tag-list не найден.');
+            confirm('Элемент с идентификатором #tag-list не найден.');
             return []; // Возвращаем пустой массив, если элемент не найден
         }
 
@@ -139,9 +139,9 @@
     // Функция для создания кнопки и добавления ее в указанный элемент
     function addButtonToFirstDiv() {
         const targetScrolleBox = document.getElementById('scrollebox');
-        const targetContainer = document.getElementsByClassName('alert alert-info')[2];
+        const targetContainer = document.getElementsByClassName('confirm confirm-info')[2];
         
-        alert(targetScrolleBox.innerText + targetContainer.innerText);
+        confirm(targetScrolleBox.innerText + targetContainer.innerText);
         if (targetScrolleBox && targetContainer) {
             const text = document.createElement('span');
             text.textContent = "|";
@@ -150,7 +150,7 @@
             link1.href = '#'; // Устанавливаем пустое значение href для того, чтобы элемент выглядел как ссылка
             link1.addEventListener('click', function () {
                 sendPhoto(getImageSource(), getTextFromCharacterTags());
-                alert(getTextFromCharacterTags());
+                confirm(getTextFromCharacterTags());
             });
 
             const link2 = document.createElement('a');
@@ -170,7 +170,7 @@
             targetScrolleBox.appendChild(link1);
             targetContainer.appendChild(link2);
         } else {
-            alert('Первый элемент <div> внутри body не найден.');
+            confirm('Первый элемент <div> внутри body не найден.');
         }
     }
 
