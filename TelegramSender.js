@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Telegram Sender
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Send to Telegram via Bot API
 // @author       Mitchelde
 // @match        https://gelbooru.com/*
@@ -27,7 +27,7 @@
             url: url,
             data: formData,
             onload: function (response) {
-                console.log(response.responseText);
+                alert(response.responseText);
             }
         });
     }
@@ -44,7 +44,7 @@
             url: url,
             data: formData,
             onload: function (response) {
-                console.log(response.responseText);
+                alert(response.responseText);
             }
         });
     }
@@ -64,7 +64,7 @@
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             onload: function (response) {
-                console.log(response.responseText);
+                alert(response.responseText);
             }
         });
     }
@@ -78,7 +78,7 @@
             const imageUrl = imageElement.getAttribute('src');
             return imageUrl; // Возвращаем ссылку на изображение
         } else {
-            console.error('Элемент с идентификатором image не найден.');
+            alert('Элемент с идентификатором image не найден.');
             return null; // Если элемент не найден, возвращаем null
         }
     }
@@ -92,7 +92,7 @@
             const videoUrl = imageElement.src;
             return videoUrl; // Возвращаем ссылку на изображение
         } else {
-            console.error('Элемент с идентификатором video не найден.');
+            alert('Элемент с идентификатором video не найден.');
             return null; // Если элемент не найден, возвращаем null
         }
     }
@@ -102,7 +102,7 @@
 
         // Проверяем, был ли найден элемент с идентификатором #tag-list
         if (!tagList) {
-            console.error('Элемент с идентификатором #tag-list не найден.');
+            alert('Элемент с идентификатором #tag-list не найден.');
             return []; // Возвращаем пустой массив, если элемент не найден
         }
 
@@ -141,7 +141,7 @@
         const targetScrolleBox = document.getElementById('scrollebox');
         const targetContainer = document.getElementsByClassName('alert alert-info')[2];
         
-        console.log(targetScrolleBox.innerText + targetContainer.innerText);
+        alert(targetScrolleBox.innerText + targetContainer.innerText);
         if (targetScrolleBox && targetContainer) {
             const text = document.createElement('span');
             text.textContent = "|";
@@ -150,7 +150,7 @@
             link1.href = '#'; // Устанавливаем пустое значение href для того, чтобы элемент выглядел как ссылка
             link1.addEventListener('click', function () {
                 sendPhoto(getImageSource(), getTextFromCharacterTags());
-                console.log(getTextFromCharacterTags());
+                alert(getTextFromCharacterTags());
             });
 
             const link2 = document.createElement('a');
@@ -170,7 +170,7 @@
             targetScrolleBox.appendChild(link1);
             targetContainer.appendChild(link2);
         } else {
-            console.error('Первый элемент <div> внутри body не найден.');
+            alert('Первый элемент <div> внутри body не найден.');
         }
     }
 
