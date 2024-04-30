@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Telegram Sender
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  Send to Telegram via Bot API
 // @author       Mitchelde
 // @match        https://gelbooru.com/*
@@ -139,8 +139,8 @@
     // Функция для создания кнопки и добавления ее в указанный элемент
     function addButtonToFirstDiv() {
         const targetScrolleBox = document.getElementById('scrollebox');
-        const targetContainer = document.getElementsByClassName('confirm confirm-info')[2];
-        
+        const targetContainer = document.getElementsByClassName('alert alert-info');
+
         confirm(targetScrolleBox.innerText + targetContainer.innerText);
         if (targetScrolleBox && targetContainer) {
             const text = document.createElement('span');
@@ -168,7 +168,16 @@
             // Добавляем кнопку внутрь элемента
             targetScrolleBox.appendChild(text);
             targetScrolleBox.appendChild(link1);
-            targetContainer.appendChild(link2);
+            
+            // Convert HTMLCollection to an array
+            const containersArray = Array.from(targetContainer);
+            console.log(targetContainer)
+            console.log(containersArray)
+            // Iterate over each element and perform operations
+            containersArray.forEach(function (container) {
+                // Your code to manipulate each container goes here
+                container.appendChild(link2);
+            });
         } else {
             confirm('Первый элемент <div> внутри body не найден.');
         }
